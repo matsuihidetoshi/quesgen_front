@@ -2,12 +2,13 @@
     <div class="index">
         <h1>Search questions</h1>
         <button v-on:click="search()">一覧表示</button>
-        <div>
+        <div><!--
         <ul>
             <li v-for="(result, id) in results" v-bind:key="id">
             {{ result.title }}
             </li>
-        </ul>
+        </ul>-->
+        {{ results }}
         </div>
     </div>
 </template>
@@ -25,9 +26,20 @@ export default {
   },
   methods: {
     search: function(){
-      axios
-      .get('https://quesgen.work/api/questions/?format=json')
-      .then(response => (this.results = response.data))
+      axios({
+        url: 'https://quesgen.work/graphql/',
+        method: 'POST',
+        data: {
+          query:
+          `query {
+            allQuestions {
+              id
+              title
+              content
+            }
+          }`
+        }
+      }).then(response => (this.results = response))
     }
   }
 }
