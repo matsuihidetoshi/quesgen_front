@@ -2,13 +2,12 @@
     <div class="index">
         <h1>Search questions</h1>
         <button v-on:click="search()">一覧表示</button>
-        <div><!--
+        <div>
         <ul>
             <li v-for="(result, id) in results" v-bind:key="id">
             {{ result.title }}
             </li>
-        </ul>-->
-        {{ results }}
+        </ul>
         </div>
     </div>
 </template>
@@ -39,7 +38,7 @@ export default {
             }
           }`
         }
-      }).then(response => (this.results = response))
+      }).then(response => (this.results = response.data.data.allQuestions))
     }
   }
 }
