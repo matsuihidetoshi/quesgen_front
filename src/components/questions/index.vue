@@ -5,7 +5,7 @@
         <div>
         <ul>
             <li v-for="(result, id) in results" v-bind:key="id">
-            {{ result.title }}
+                <router-link v-on:click="identify(id)" :to="{ name: 'question', params: { id: id }}" >{{ result.title }}</router-link >
             </li>
         </ul>
         </div>
@@ -45,7 +45,4 @@ export default {
 </script>
 
 <style scoped>
-ul {
-  list-style: none;
-}
 </style>

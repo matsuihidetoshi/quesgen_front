@@ -1,27 +1,34 @@
 <template>
-  <div id="app">
-    <QuestionIndex/>
+  <div>
+    <router-link to="/questions/index">
+      Index
+    </router-link>
+    <router-link to="/questions/new">
+      New
+    </router-link>
+    <router-link to="/questions/edit">
+      edit
+    </router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import QuestionIndex from './components/questions/index.vue'
-
 export default {
-  name: 'app',
-  components: {
-    QuestionIndex
-  }
+  
 }
 </script>
 
 <style>
-#app {
+div {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+ul {
+  list-style: none;
 }
 </style>
