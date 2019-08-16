@@ -5,7 +5,7 @@
             <li><input v-model="content" placeholder="content"></li>
         </ul>
         <p class="error">{{ message }}</p>
-        <button v-on:click="create()">Create</button>
+        <button v-if="!disable" v-on:click="create()">Create</button>
     </div>
 </template>
 <script>

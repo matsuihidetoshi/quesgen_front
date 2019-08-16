@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div>
+        <h1>Building question edit page.</h1>
+    </div>
 </template>
 <script>
 export default {
