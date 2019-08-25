@@ -1,13 +1,12 @@
 <template>
     <div class="index">
-        <h1>Search questions</h1>
-        <button v-on:click="search()">一覧表示</button>
+        <h1>Questions</h1>
         <div>
-        <ul>
-            <li v-for="(result, id) in results" v-bind:key="id">
-                <router-link v-on:click="identify(id)" :to="{ name: 'question', params: { id: id }}" >{{ result.title }}</router-link >
-            </li>
-        </ul>
+          <ul>
+              <li v-for="(result, id) in results" v-bind:key="id">
+                  <router-link v-on:click="identify(id)" :to="{ name: 'question', params: { id: id }}" >{{ result.title }}</router-link >
+              </li>
+          </ul>
         </div>
     </div>
 </template>
@@ -23,23 +22,21 @@ export default {
       results: null
     }
   },
-  methods: {
-    search: function(){
-      axios({
-        url: 'https://quesgen.work/graphql/',
-        method: 'POST',
-        data: {
-          query:
-          `query {
-            allQuestions {
-              id
-              title
-              content
-            }
-          }`
-        }
-      }).then(response => (this.results = response.data.data.allQuestions))
-    }
+  mounted() {
+    axios({
+      url: 'https://quesgen.work/graphql/',
+      method: 'POST',
+      data: {
+        query:
+        `query {
+          allQuestions {
+            id
+            title
+            content
+          }
+        }`
+      }
+    }).then(response => (this.results = response.data.data.allQuestions))
   }
 }
 </script>

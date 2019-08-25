@@ -3,6 +3,11 @@
         <p>{{ results.id }}</p>
         <p>{{ results.title }}</p>
         <p>{{ results.content }}</p>
+        <p>{{ results.option1 }}</p>
+        <p>{{ results.option2 }}</p>
+        <p>{{ results.option3 }}</p>
+        <p>{{ results.option4 }}</p>
+        <p>{{ results.option5 }}</p>
     </div>
 </template>
 <script>
@@ -27,6 +32,11 @@ export default {
                         id
                         title
                         content
+                        option1
+                        option2
+                        option3
+                        option4
+                        option5
                     }
                 }`
         },
