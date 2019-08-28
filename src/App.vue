@@ -1,13 +1,10 @@
 <template>
   <div>
-    <router-link to="/questions/index">
+    <router-link to="/questions/">
       Index
     </router-link>
     <router-link to="/questions/new">
       New
-    </router-link>
-    <router-link to="/questions/edit">
-      edit
     </router-link>
     <router-view></router-view>
   </div>
@@ -30,5 +27,6 @@ div {
 }
 ul {
   list-style: none;
+  padding-right: 2em;
 }
 </style>

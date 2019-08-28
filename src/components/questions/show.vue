@@ -1,9 +1,15 @@
 <template>
     <div class="show">
-        <p>{{ time }}</p>
         <p>{{ results.id }}</p>
         <p>{{ results.title }}</p>
         <p>{{ results.content }}</p>
+        <svg width="200" height="200">
+            <circle id="circle5" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle5"/>
+            <circle id="circle4" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle4"/>
+            <circle id="circle3" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle3"/>
+            <circle id="circle2" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle2"/>
+            <circle id="circle1" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle1"/>
+        </svg>
         <div>{{ results.option1 }}:{{ results.ratio1 }}%<button v-on:click="vote(1)">vote</button></div>
         <div>{{ results.option2 }}:{{ results.ratio2 }}%<button v-on:click="vote(2)">vote</button></div>
         <div>{{ results.option3 }}:{{ results.ratio3 }}%<button v-on:click="vote(3)">vote</button></div>
@@ -21,12 +27,18 @@ export default {
     return{
       results: null,
       updateTimer: null,
+      circle1: null,
+      circle2: null,
+      circle3: null,
+      circle4: null,
+      circle5: null,
     }
   },
   mounted(){
     this.getQuestion()
     this.updateTimer = setInterval(function () {
       this.getQuestion()
+      this.calcRatio()
     }.bind(this), 100)
   },
   beforeDestroy(){
@@ -86,10 +98,44 @@ export default {
                 }`
           },
       }).then(response => (this.results = response.data.data.question))
+    },
+    calcRatio: function(){
+      let ratio = []
+      ratio[0] = this.results.ratio1 * 3.77
+      ratio[1] = ratio[0] + this.results.ratio2 *3.77
+      ratio[2] = ratio[1] + this.results.ratio3 *3.77
+      ratio[3] = ratio[2] + this.results.ratio4 *3.77
+      ratio[4] = ratio[3] + this.results.ratio5 *3.77
+      this.circle1 = ratio[0].toString() + ",377"
+      this.circle2 = ratio[1].toString() + ",377"
+      this.circle3 = ratio[2].toString() + ",377"
+      this.circle4 = ratio[3].toString() + ",377"
+      this.circle5 = ratio[4].toString() + ",377"
     }
   }
 }
 </script>
 <style scoped>
-
+  svg {
+      transform: rotate(-90deg);
+  }
+  circle {
+      fill: transparent;
+      stroke-width: 20;
+  }
+  #circle1 {
+    stroke: #4fa8df;
+  }
+  #circle2 {
+    stroke: #4f71df;
+  }
+  #circle3 {
+    stroke: #714fdf;
+  }
+  #circle4 {
+    stroke: #ce4fdf;
+  }
+  #circle5 {
+    stroke: #df4f62;
+  }
 </style>
