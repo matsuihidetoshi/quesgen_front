@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="/questions/">
+    <router-link to="/">
       Index
     </router-link>
     <router-link to="/questions/new">

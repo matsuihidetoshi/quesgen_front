@@ -7,7 +7,7 @@ import New from './src/components/questions/new.vue';
 Vue.use(VueRouter);
 
 const routes = [
-    { path: '/questions/', component: Index, name: 'questions', },
+    { path: '/', component: Index, name: 'questions', },
     { path: '/questions/show', component: Show, name: 'question' },
     { path: '/questions/new', component: New, name: 'new_question' },
 ];

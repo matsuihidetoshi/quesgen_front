@@ -1,7 +1,6 @@
 <template>
     <div class="show">
-        <p>{{ results.id }}</p>
-        <p>{{ results.title }}</p>
+        <div class="title">{{ results.title }}</div>
         <p>{{ results.content }}</p>
         <svg width="200" height="200">
             <circle id="circle5" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle5"/>
@@ -10,11 +9,11 @@
             <circle id="circle2" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle2"/>
             <circle id="circle1" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle1"/>
         </svg>
-        <div>{{ results.option1 }}:{{ results.ratio1 }}%<button v-on:click="vote(1)">vote</button></div>
-        <div>{{ results.option2 }}:{{ results.ratio2 }}%<button v-on:click="vote(2)">vote</button></div>
-        <div>{{ results.option3 }}:{{ results.ratio3 }}%<button v-on:click="vote(3)">vote</button></div>
-        <div>{{ results.option4 }}:{{ results.ratio4 }}%<button v-on:click="vote(4)">vote</button></div>
-        <div>{{ results.option5 }}:{{ results.ratio5 }}%<button v-on:click="vote(5)">vote</button></div>
+        <div class="options op1">{{ results.option1 }}:{{ results.ratio1 }}%<button v-on:click="vote(1)">vote</button></div>
+        <div class="options op2">{{ results.option2 }}:{{ results.ratio2 }}%<button v-on:click="vote(2)">vote</button></div>
+        <div class="options op3">{{ results.option3 }}:{{ results.ratio3 }}%<button v-on:click="vote(3)">vote</button></div>
+        <div class="options op4">{{ results.option4 }}:{{ results.ratio4 }}%<button v-on:click="vote(4)">vote</button></div>
+        <div class="options op5">{{ results.option5 }}:{{ results.ratio5 }}%<button v-on:click="vote(5)">vote</button></div>
     </div>
 </template>
 <script>
@@ -116,6 +115,14 @@ export default {
 }
 </script>
 <style scoped>
+  .title {
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .options {
+    margin-top: 15px;
+  }
   svg {
       transform: rotate(-90deg);
   }
@@ -124,18 +131,38 @@ export default {
       stroke-width: 20;
   }
   #circle1 {
-    stroke: #4fa8df;
+    stroke: #6bbdf0;
+  }
+  .op1 {
+    color: #6bbdf0;
+    font-weight: bold;
   }
   #circle2 {
-    stroke: #4f71df;
+    stroke: #4f81df;
+  }
+  .op2 {
+    color: #4f81df;
+    font-weight: bold;
   }
   #circle3 {
-    stroke: #714fdf;
+    stroke: #694fdf;
+  }
+  .op3 {
+    color: #694fdf;
+    font-weight: bold;
   }
   #circle4 {
     stroke: #ce4fdf;
   }
+  .op4 {
+    color: #ce4fdf;
+    font-weight: bold;
+  }
   #circle5 {
     stroke: #df4f62;
+  }
+  .op5 {
+    color: #df4f62;
+    font-weight: bold;
   }
 </style>
