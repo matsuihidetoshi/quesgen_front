@@ -3,17 +3,18 @@
         <div class="title">{{ results.title }}</div>
         <p>{{ results.content }}</p>
         <svg width="200" height="200">
+            <circle id="circle6" cx="100" cy="100" r="60" stroke-dasharray="377,377"/>
             <circle id="circle5" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle5"/>
             <circle id="circle4" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle4"/>
             <circle id="circle3" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle3"/>
             <circle id="circle2" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle2"/>
             <circle id="circle1" cx="100" cy="100" r="60" v-bind:stroke-dasharray="circle1"/>
         </svg>
-        <div class="options op1">{{ results.option1 }}:{{ results.ratio1 }}%<button v-on:click="vote(1)">vote</button></div>
-        <div class="options op2">{{ results.option2 }}:{{ results.ratio2 }}%<button v-on:click="vote(2)">vote</button></div>
-        <div class="options op3">{{ results.option3 }}:{{ results.ratio3 }}%<button v-on:click="vote(3)">vote</button></div>
-        <div class="options op4">{{ results.option4 }}:{{ results.ratio4 }}%<button v-on:click="vote(4)">vote</button></div>
-        <div class="options op5">{{ results.option5 }}:{{ results.ratio5 }}%<button v-on:click="vote(5)">vote</button></div>
+        <div class="options op1">{{ results.option1 }}: {{ results.ratio1 }}% <button v-on:click="vote(1)">vote</button></div>
+        <div class="options op2">{{ results.option2 }}: {{ results.ratio2 }}% <button v-on:click="vote(2)">vote</button></div>
+        <div class="options op3">{{ results.option3 }}: {{ results.ratio3 }}% <button v-on:click="vote(3)">vote</button></div>
+        <div class="options op4">{{ results.option4 }}: {{ results.ratio4 }}% <button v-on:click="vote(4)">vote</button></div>
+        <div class="options op5">{{ results.option5 }}: {{ results.ratio5 }}% <button v-on:click="vote(5)">vote</button></div>
     </div>
 </template>
 <script>
@@ -101,10 +102,10 @@ export default {
     calcRatio: function(){
       let ratio = []
       ratio[0] = this.results.ratio1 * 3.77
-      ratio[1] = ratio[0] + this.results.ratio2 *3.77
-      ratio[2] = ratio[1] + this.results.ratio3 *3.77
-      ratio[3] = ratio[2] + this.results.ratio4 *3.77
-      ratio[4] = ratio[3] + this.results.ratio5 *3.77
+      ratio[1] = ratio[0] + this.results.ratio2 * 3.77
+      ratio[2] = ratio[1] + this.results.ratio3 * 3.77
+      ratio[3] = ratio[2] + this.results.ratio4 * 3.77
+      ratio[4] = ratio[3] + this.results.ratio5 * 3.77
       this.circle1 = ratio[0].toString() + ",377"
       this.circle2 = ratio[1].toString() + ",377"
       this.circle3 = ratio[2].toString() + ",377"
@@ -164,5 +165,8 @@ export default {
   .op5 {
     color: #df4f62;
     font-weight: bold;
+  }
+  #circle6 {
+    stroke: #88a0c7;
   }
 </style>
