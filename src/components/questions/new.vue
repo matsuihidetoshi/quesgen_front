@@ -62,4 +62,8 @@ export default {
 .error {
     color: red;
 }
+input {
+    font-size: 18px;
+    margin: 5px;
+}
 </style>
