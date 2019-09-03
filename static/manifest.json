@@ -1,0 +1,16 @@
+{
+    "name": "Quesgen",
+    "short_name": "QG",
+    "theme_color": "#2c21f3",
+    "background_color": "#21baf3",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "/static/images/icons/icon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        }
+    ]
+  }
